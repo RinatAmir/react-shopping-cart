@@ -69,7 +69,7 @@ export default class Products extends Component {
                   <p>
                     Avilable Sizes{' '}
                     {product.availableSizes.map((size) => (
-                      <span>
+                      <span key={size}>
                         {' '}
                         <button className='button'>{size}</button>
                       </span>
