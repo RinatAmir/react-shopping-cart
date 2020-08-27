@@ -71,3 +71,31 @@ input {
     padding: 1rem;
     border: .1rem solid #c0c0c0
 }
+
+.order-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+}
+
+.order-details li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-details li div {
+    padding: 10px;
+}
+
+.order-details .items {
+    text-align: right;
+    padding: 0;
+}
+
+.success-message {
+    color: forestgreen;
+}
