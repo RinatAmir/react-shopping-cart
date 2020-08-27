@@ -3,7 +3,10 @@ import './cart.css';
 import formatCurrency from '../../util';
 import Fade from 'react-reveal/Fade';
 
-export default class Cart extends Component {
+import { connect } from 'react-redux';
+import { removeFromCart } from '../../redux/actions/cartActions';
+
+class Cart extends Component {
   constructor(props) {
     super(props);
 
@@ -46,6 +49,7 @@ export default class Cart extends Component {
         <div className='cart'>
           <Fade left cascade>
             <ul className='cart-items'>
+              {console.log(cartItems, 'cartItems')}
               {cartItems.map((item) => (
                 <li key={item._id}>
                   <div>
@@ -57,7 +61,7 @@ export default class Cart extends Component {
                       {formatCurrency(item.price)} x {item.count}{' '}
                       <button
                         className='button'
-                        onClick={() => this.props.removeItem(item)}
+                        onClick={() => this.props.removeFromCart(item)}
                       >
                         Remove Item
                       </button>
@@ -136,3 +140,12 @@ export default class Cart extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  console.log(state.cart.cartItems, 'cart');
+  return {
+    cartItems: state.cart.cartItems,
+  };
+};
+
+export default connect(mapStateToProps, { removeFromCart })(Cart);
