@@ -7,6 +7,7 @@ import Modal from 'react-modal';
 
 import { connect } from 'react-redux';
 import { fetchProducts } from '../../redux/actions/productAction';
+import { addToCart } from '../../redux/actions/cartActions';
 
 class Products extends Component {
   constructor(props) {
@@ -114,4 +115,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { fetchProducts })(Products);
+export default connect(mapStateToProps, { fetchProducts, addToCart })(Products);
